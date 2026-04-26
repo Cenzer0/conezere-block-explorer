@@ -12,7 +12,7 @@ export interface NetworkConfig {
 }
 
 const DEFAULT_NETWORKS: NetworkConfig[] = [
-  { id: 1, name: 'Conezere Mainnet', rpcUrl: 'https://rpc.ankr.com/eth', currency: 'ETH', explorer: 'https://etherscan.io' },
+  { id: 1409, name: 'Conezere Mainnet', rpcUrl: 'http://34.46.9.227/ext/bc/2uGdV4SxbfenVSF7iaLuQm3cUUYTZRWSergBZKXvCATrz5uZSh/rpc', currency: 'CNZR', explorer: 'https://conezerescan.cnzr.biz.id' },
   { id: 137, name: 'Polygon', rpcUrl: 'https://polygon-rpc.com', currency: 'MATIC', explorer: 'https://polygonscan.com' },
   { id: 42161, name: 'Arbitrum One', rpcUrl: 'https://arb1.arbitrum.io/rpc', currency: 'ETH', explorer: 'https://arbiscan.io' },
   { id: 56, name: 'Binance Smart Chain', rpcUrl: 'https://bsc-dataseed.binance.org', currency: 'BNB', explorer: 'https://bscscan.com' },
@@ -32,7 +32,7 @@ export function NetworkProvider({ children }: { children: React.ReactNode }) {
   const [networks, setNetworks] = useState<NetworkConfig[]>(() => {
     const saved = localStorage.getItem('explorer_networks');
     let loaded = saved ? JSON.parse(saved) : DEFAULT_NETWORKS;
-    
+
     // Self-correction for problematic RPC URLs (llamarpc.com or cloudflare-eth.com)
     loaded = loaded.map((net: NetworkConfig) => {
       const defaultMatch = DEFAULT_NETWORKS.find(d => d.id === net.id);
@@ -41,7 +41,7 @@ export function NetworkProvider({ children }: { children: React.ReactNode }) {
       }
       return net;
     });
-    
+
     return loaded;
   });
 

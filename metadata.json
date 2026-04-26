@@ -1,0 +1,6 @@
+{
+  "name": "Conezere Block Explorer",
+  "description": "A high-precision, real-time blockchain explorer for custom networks, smart contract analysis, and on-chain telemetry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
